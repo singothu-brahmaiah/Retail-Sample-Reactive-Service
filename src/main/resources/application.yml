@@ -32,18 +32,7 @@ springbootwebfluxjjwt:
       keylength: '256'
   jjwt:
     expiration: '28800'
-    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength
-  
-logging:
-  level:
-    '[org.springframework.web]': ERROR
-    
-    
-  pattern:
-    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
-    file: '%d{yyyy-MM-dd HH:mm:ss}[%thread] %-5level %logger{36} - %msg%n'
-  file:
-    path: C:\logging-reactive\api.log 
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength 
  
 microservices:
    servers: Picker profile

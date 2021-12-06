@@ -1,0 +1,49 @@
+spring:
+  data:
+    mongodb:
+      database: Productsdb
+      host: localhost
+      port: 27017
+
+server:
+  port: 9090 
+  
+management:
+    endpoints:
+     web:
+      exposure:
+       include:
+         - "*"
+info: 
+  application:
+    name : springboot-reactive-with-mongo
+    artifactId: springboot-reactive-with-mongo
+    version: 0.0.1-SNAPSHOT
+    description: Demo project for Spring Boot with reactive and mongodb
+    
+springdoc:  api-docs:    groups:      enabled: true     path: /swagger-doc/v3/api-docs      swagger-ui:    path: /swagger-doc/swagger-ui.html
+
+
+springbootwebfluxjjwt:
+  password:
+    encoder:
+      iteration: '33'
+      secret: mysecret
+      keylength: '256'
+  jjwt:
+    expiration: '28800'
+    secret: ThisIsSecretForJWTHS512SignatureAlgorithmThatMUSTHave64ByteLength
+  
+logging:
+  level:
+    '[org.springframework.web]': ERROR
+    
+    
+  pattern:
+    console: '%d{yyyy-MM-dd HH:mm:ss} - %msg%n'
+    file: '%d{yyyy-MM-dd HH:mm:ss}[%thread] %-5level %logger{36} - %msg%n'
+  file:
+    path: C:\logging-reactive\api.log 
+ 
+  
+ 

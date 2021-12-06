@@ -45,5 +45,8 @@ logging:
   file:
     path: C:\logging-reactive\api.log 
  
-  
+microservices:
+   servers: Picker profile
+   name: Testing sever
+   urls: "http://localhost:9091/customer" 
  

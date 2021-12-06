@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.reactive.springboot.model.ProductDtls;
+import com.reactive.springboot.model.ProfileDetails;
 import com.reactive.springboot.service.ProductService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -48,6 +49,13 @@ public class ProductController {
 		log.info("Fetch the product detail - Called getProduct");
 		Mono<ProductDtls> productDtls = productService.getProduct(id);
 		return new ResponseEntity<Mono<ProductDtls>>(productDtls, HttpStatus.NOT_FOUND);
+	}
+
+	@GetMapping(value = "profile/{id}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public ResponseEntity<Mono<ProfileDetails>> getProfileDetails(@PathVariable String id) {
+		log.info("Fetch the product detail - Called getProfileDetails");
+		Mono<ProfileDetails> productDtls = productService.getProfile(id);
+		return new ResponseEntity<Mono<ProfileDetails>>(productDtls, HttpStatus.NOT_FOUND);
 	}
 
 	@PutMapping("/update/{id}")

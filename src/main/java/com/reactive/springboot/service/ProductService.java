@@ -14,6 +14,7 @@ import com.reactive.springboot.utils.AppUtils;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.util.retry.Retry;
 
 @Service
 @Transactional
@@ -63,7 +64,11 @@ public class ProductService {
 				.retrieve()
 				//.onStatus(httpStatus -> HttpStatus.INTERNAL_SERVER_ERROR.equals(httpStatus),
 		            //    clientResponse -> Mono.error(new BusinessException(clientResponse.statusCode().toString(), "Error in Item")))
-				.bodyToMono(ProfileDetails.class);
+				.bodyToMono(ProfileDetails.class)
+				.retryWhen(Retry.max(2)
+						//.onRetryExhaustedThrow(throwable -> throwable instanceof ThrowableTranslator)
+						//.filter(throwable -> throwable instanceof ThrowableTranslator)
+						);
 				//.flatMap(i -> itemDao.getItemsByID(i.getId()))
 				//.switchIfEmpty(Flux.error(new BusinessException("404", "Item not found")));
 		log.info(" ProductService :: getItemsByUId :: Exit - " + id );

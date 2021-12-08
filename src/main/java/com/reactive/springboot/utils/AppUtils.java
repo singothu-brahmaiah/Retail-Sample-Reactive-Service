@@ -1,8 +1,9 @@
 package com.reactive.springboot.utils;
 
 import org.springframework.beans.BeanUtils;
+
+import com.reactive.springboot.dto.ProductDtls;
 import com.reactive.springboot.entity.Product;
-import com.reactive.springboot.model.ProductDtls;
 
 public class AppUtils {
 

@@ -3,10 +3,11 @@ package com.reactive.springboot.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Range;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.reactive.springboot.model.ProductDtls;
-import com.reactive.springboot.model.ProfileDetails;
+import com.reactive.springboot.dto.ProductDtls;
+import com.reactive.springboot.dto.ProfileDetails;
 import com.reactive.springboot.repository.ProductRepository;
 import com.reactive.springboot.utils.AppUtils;
 
@@ -15,6 +16,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
+@Transactional
 @Slf4j
 public class ProductService {
 

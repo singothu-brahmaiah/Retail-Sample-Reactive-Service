@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reactive.springboot.model.Message;
+import com.reactive.springboot.dto.Message;
 
 import reactor.core.publisher.Mono;
 

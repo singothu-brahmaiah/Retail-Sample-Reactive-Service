@@ -1,4 +1,4 @@
-package com.reactive.springboot.model;
+package com.reactive.springboot.dto;
 
 import java.util.Collection;
 import java.util.List;
@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.reactive.springboot.enums.Role;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

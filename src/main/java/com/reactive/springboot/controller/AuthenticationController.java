@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.reactive.springboot.model.AuthRequest;
-import com.reactive.springboot.model.AuthResponse;
+import com.reactive.springboot.dto.AuthRequest;
+import com.reactive.springboot.dto.AuthResponse;
 import com.reactive.springboot.security.JWTUtil;
 import com.reactive.springboot.security.PBKDF2Encoder;
 import com.reactive.springboot.service.UserService;

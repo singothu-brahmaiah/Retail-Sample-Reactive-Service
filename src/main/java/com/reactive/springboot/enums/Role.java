@@ -1,4 +1,4 @@
-package com.reactive.springboot.model;
+package com.reactive.springboot.enums;
 
 public enum Role {
     ROLE_USER, ROLE_ADMIN

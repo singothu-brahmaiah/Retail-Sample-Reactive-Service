@@ -1,4 +1,4 @@
-package com.reactive.springboot.model;
+package com.reactive.springboot.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -7,13 +7,15 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.reactive.springboot.model.Role;
-import com.reactive.springboot.model.User;
+import com.reactive.springboot.dto.User;
+import com.reactive.springboot.enums.Role;
 
 import reactor.core.publisher.Mono;
 
 @Service
+@Transactional
 public class UserService {
 
 	private Map<String, User> data;

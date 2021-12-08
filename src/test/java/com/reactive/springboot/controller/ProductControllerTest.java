@@ -12,7 +12,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
-import com.reactive.springboot.model.ProductDtls;
+import com.reactive.springboot.dto.ProductDtls;
 import com.reactive.springboot.service.ProductService;
 
 import reactor.core.publisher.Flux;
@@ -62,6 +62,7 @@ class ProductControllerTest {
 		Flux<ProductDtls> responseBody = webTestClient.get().uri("/product").exchange().expectStatus().isOk()
 				.returnResult(ProductDtls.class).getResponseBody();
 
+		
 		StepVerifier.create(responseBody).expectSubscription().expectNext(new ProductDtls("203", "Pizza", 2, 50000))
 				.expectNext(new ProductDtls("204", "Cake", 3, 60000)).verifyComplete();
 

@@ -1,4 +1,4 @@
-package com.reactive.springboot.security;
+package com.reactive.springboot.security.cors;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.config.CorsRegistry;

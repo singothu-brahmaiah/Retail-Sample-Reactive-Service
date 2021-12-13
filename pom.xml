@@ -19,6 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<io.jsonwebtoken.version>0.11.2</io.jsonwebtoken.version>
+		<log4j2.version>2.15.0</log4j2.version>
 	</properties>
 	<dependencies>
 		<dependency>

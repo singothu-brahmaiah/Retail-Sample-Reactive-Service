@@ -11,6 +11,7 @@ import com.reactive.springboot.dto.ProfileDetails;
 import com.reactive.springboot.repository.ProductRepository;
 import com.reactive.springboot.utils.AppUtils;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -19,13 +20,14 @@ import reactor.util.retry.Retry;
 @Service
 @Transactional
 @Slf4j
+@RequiredArgsConstructor
 public class ProductService {
 
 	@Autowired
-	private ProductRepository repository;
+	private final ProductRepository repository;
 	
 	@Autowired
-	private WebClient webClient;
+	private final WebClient webClient;
 
 	public Mono<ProductDtls> saveProduct(Mono<ProductDtls> productDtls) {
 		return productDtls.map(AppUtils::modelToEntity).flatMap(repository::insert).map(AppUtils::entityToModel);

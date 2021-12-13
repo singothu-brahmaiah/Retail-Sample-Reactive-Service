@@ -18,7 +18,9 @@ import com.reactive.springboot.dto.Order;
 import com.reactive.springboot.dto.OrderEvent;
 import com.reactive.springboot.order.producer.KafkaEventProducer;
 import com.reactive.springboot.repository.OrderRepository;
+import com.reactive.springboot.service.ProductService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -26,23 +28,18 @@ import reactor.util.function.Tuple2;
 
 @RestController
 @RequestMapping("/order")
-
 @Slf4j
+@RequiredArgsConstructor
 public class OrderController {
 	@Autowired
-	KafkaEventProducer kafkaEventProducer;
+	private final KafkaEventProducer kafkaEventProducer;
 	// spring web flux Mono is equivalent to CompletableFuture non blocking
 	// callback
 	// operation
 	// Mono 0..1 elements
 	// Flux 0 .. N elements
 
-	private OrderRepository orderRepository;
-
-	public OrderController(OrderRepository orderRepository) {
-
-		this.orderRepository = orderRepository;
-	}
+	private final OrderRepository orderRepository;
 
 	// Flux 0 .. N elements ... list of values
 	@GetMapping("/all")

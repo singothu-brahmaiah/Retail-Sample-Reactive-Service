@@ -18,6 +18,7 @@ import com.reactive.springboot.dto.ProductDtls;
 import com.reactive.springboot.dto.ProfileDetails;
 import com.reactive.springboot.service.ProductService;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -25,10 +26,11 @@ import reactor.core.publisher.Mono;
 @RestController
 @RequestMapping("/product")
 @Slf4j
+@RequiredArgsConstructor
 public class ProductController {
 
 	@Autowired
-	private ProductService productService;
+	private final ProductService productService;
 
 	@PostMapping("/saveProducts")
 	public ResponseEntity<Mono<ProductDtls>> saveProduct(@RequestBody Mono<ProductDtls> productDtls) {
